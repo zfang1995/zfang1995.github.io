@@ -1,0 +1,37 @@
+// role
+[role='div']{display: block;}[role='division']{display: block;}[role='span']{display: inline;}[role='span']{display: inline;}[role='img']{background-size: 100%;background-repeat: no-repeat;background-position: center center;}
+// /role
+
+// base
+.displayBlock{display:block;}.displayFlex{display:flex;}.textAlignLeft{text-align:left;}
+// /base
+
+
+
+// others
+.clearfix {
+  *zoom: 1;
+  &:before,&:after {
+	  content: "";
+	  display: table;
+	}
+	&:after {
+	  clear: both;
+	}
+}	
+
+img.responsive{
+	display:block;
+	max-width:100%; height:auto;	
+}
+
+.absoluteCenteringOnThisStackContext {
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+	margin: auto;
+}
+
+.background{
+	position: absolute;
+	z-index: -2;
+}

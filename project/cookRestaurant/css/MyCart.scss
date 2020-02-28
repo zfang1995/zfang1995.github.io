@@ -1,0 +1,47 @@
+@import '_thisSite.framework.scss';
+
+#div-titleBarMyCart{
+    height: (132 / $REMtoPXratio) + rem; width: 100%;
+    position: relative;
+    &>div{
+        width: 100%;
+        position: fixed;
+        text-align: center; line-height: (132 / $REMtoPXratio) + rem; vertical-align: middle;
+        font-weight: bold;
+        background-color: white;
+    }
+}
+
+#div-mainContentAera{
+    width: 100%; height: inherit;
+    padding-top: (38 / $REMtoPXratio) + rem;
+    background-color: #efeff3;
+
+    .panel._1{
+        width: (1182 / $REMtoPXratio) + rem; height: (285 / $REMtoPXratio) + rem;
+        margin-top: (25 / $REMtoPXratio) + rem; margin-bottom: (25       / $REMtoPXratio) + rem;
+        &>div{
+            margin:auto;
+        }
+        [role='img']{
+            width: 1.25rem;height: 1.25rem;
+            background-size: cover;
+            margin-right: (-50 / $REMtoPXratio) + rem; margin-left: (38 / $REMtoPXratio) + rem;
+        }
+        &>:nth-of-type(2){
+           height: 1.1rem;
+        }
+    }
+
+}
+
+#div-checkOut{
+    height:(165 / $REMtoPXratio) + rem; width: (1242 / $REMtoPXratio) + rem;
+    position:fixed; bottom: 0;
+    line-height: (165 / $REMtoPXratio) + rem; vertical-align: middle; text-align: center;
+    font-size: 1.8em; font-weight:bold;
+    color:white; background-color:#ff8400;
+}
+.icon-ic-add{
+    color: #636363;
+}

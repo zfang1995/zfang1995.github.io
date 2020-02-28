@@ -1,0 +1,14 @@
+@import 'thisSite.framework.scss';
+
+
+[style*="ic-app.png"]{
+	width: (372 / $REMtoPXratio) + rem;
+	height: (372 / $REMtoPXratio) + rem;
+	margin-top: auto;
+	margin-bottom: (135 / $REMtoPXratio) + rem;
+}
+[style*="CUK%20CUK.png"]{
+	width: (429 / $REMtoPXratio) + rem;
+	height: (66 / $REMtoPXratio) + rem;
+}
+ 

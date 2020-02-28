@@ -1,0 +1,16 @@
+  - Cook Restaurant : 手机端网站前端  
+    - 查看作品：https://zfang1995.github.io/project/cookRestaurant/ (请在手机上查看)
+    - 查看源码：https://github.com/zfang1995/zfang1995.github.io/tree/master/project/cookRestaurant
+    - 我是怎么制作这个项目的?
+      - 使用了一个互联网上免费公开的手机端APP的界面设计稿作为蓝本。
+      - 依靠 sass 和 CSS 的级联原理规划了这个网站的样式框架。
+      - 使用 软件—— PXcook 测量了设计稿中的各个页面元素的尺寸和间距。
+      - 依靠 弹性盒模型 及 视口 技术，设定了网页元素的排版布局。
+        - 依靠 auto-font-size.js 实现了网页中各个元素能够等比例缩放。
+      - 使用 jquery.validation 插件完成了表单验证功能。
+      - 使用 高德地图的API + AJAX技术 制作了搜索附近区域内的餐馆的功能
+        - 为了减少硬件设备的性能消耗，我使用了 debounce.js 来限制 发送网络请求的频率。
+      - 依靠 swiper.js 制作了 轮播效果 和 滑动删除当前元素的效果。
+        - [演示地址：轮播](https://zfang1995.github.io/project/cookRestaurant/html/Walkthought.html)
+        - [演示地址：滑动删除](https://zfang1995.github.io/project/cookRestaurant/html/Favorites.html)
+      - 使用 字体图标 技术，制作了此网站中所用到的矢量图标。  

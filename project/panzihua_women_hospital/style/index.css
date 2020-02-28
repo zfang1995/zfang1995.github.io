@@ -1,0 +1,325 @@
+@charset "UTF-8";
+@import url(../style/swiper/swiper.min.css);
+@import url(../style/animateCss/animate.css);
+body {
+  width: 16rem;
+  height: 100vh;
+  font-size: 0.9rem;
+  padding: 0;
+  margin: 0;
+  font-family: 'MicrosoftYaHei'; }
+
+header {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 1; }
+  header > :first-child {
+    margin: 0.6rem 0;
+    display: flex;
+    justify-content: space-around; }
+
+.site-title {
+  display: flex;
+  justify-content: space-around; }
+  .site-title img {
+    display: block;
+    width: 1.175rem;
+    height: 1.225rem;
+    margin: 0 0.25rem; }
+  .site-title h1 {
+    margin: 0;
+    font-family: 'MicrosoftYaHei-Bold';
+    font-size: 0.625rem;
+    font-weight: bold;
+    color: #1c162f;
+    letter-spacing: 0.05rem; }
+  .site-title h2 {
+    margin: 0;
+    font-size: 0.2rem;
+    font-weight: normal;
+    color: #1c162f; }
+
+.telephone-number {
+  font-family: Arial, Helvetica, sans-serif; }
+
+.site-nav {
+  list-style: none;
+  border-top: 0.075rem solid #822f69;
+  border-bottom: 0.075rem solid #822f69;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  height: 1.2rem; }
+  .site-nav > li {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 0.6rem;
+    display: flex;
+    align-items: center; }
+    .site-nav > li.selected {
+      background-color: #1c162f; }
+      .site-nav > li.selected a {
+        color: white; }
+    .site-nav > li::after {
+      content: "";
+      width: 0.05rem;
+      height: 0.6rem;
+      background-color: #1c162f; }
+    .site-nav > li:last-child::after {
+      content: none; }
+  .site-nav a {
+    flex-grow: 1;
+    text-decoration: none;
+    color: #191725; }
+
+body > section {
+  height: inherit;
+  width: inherit; }
+
+.章节-怀孕了？ {
+  background-image: url("../picture/怀了孕？.png");
+  background-size: cover;
+  background-position: center center; }
+
+.段落-怀孕了？ {
+  margin-top: 5.325rem;
+  margin-left: 1rem;
+  box-sizing: border-box;
+  width: 12.5rem;
+  padding: 1.75rem 0.25rem;
+  background-color: rgba(37, 32, 88, 0.8);
+  animation-delay: 1s;
+  animation-duration: 4s; }
+
+.文本-有… {
+  color: #ffffff;
+  font-size: 2.35rem;
+  animation-delay: 1s;
+  animation-duration: 2s; }
+
+.文本-是… {
+  margin-top: 1.75rem;
+  color: #bdb9ef;
+  font-size: 1.8rem;
+  animation-duration: 3s;
+  animation-delay: 1s; }
+
+.文本-怀… {
+  margin-top: 0.675rem;
+  color: #ffffff;
+  font-size: 2.7rem;
+  animation-delay: 1s;
+  animation-duration: 4s; }
+
+.链接-怀孕检查 {
+  display: block;
+  box-sizing: border-box;
+  height: 3.25rem;
+  width: 13.25rem;
+  line-height: 2.6rem;
+  vertical-align: middle;
+  background-image: url("../picture/cherryButton.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-align: center;
+  color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0 auto;
+  margin-top: 1.75rem; }
+
+.章节-怀孕症状 {
+  background-color: #822f69; }
+  .章节-怀孕症状 * {
+    color: #fff; }
+
+.段落-大姨妈还没来 {
+  text-align: center;
+  margin-top: 1.75rem; }
+  .段落-大姨妈还没来::after {
+    content: '';
+    display: block;
+    height: 0.78125rem;
+    width: 1.96875rem;
+    background-image: url("../picture/downArrow.png");
+    background-size: contain;
+    margin: 0.75rem auto;
+    background-repeat: no-repeat;
+    background-position: center center; }
+
+.段落-是不是怀孕了 {
+  text-align: center;
+  margin-top: 1.75rem; }
+  .段落-是不是怀孕了::after {
+    content: '';
+    display: block;
+    height: 0.78125rem;
+    width: 1.96875rem;
+    background-image: url("../picture/downArrow.png");
+    background-size: contain;
+    margin: 0.75rem auto;
+    background-repeat: no-repeat;
+    background-position: center center; }
+  .段落-是不是怀孕了 h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: normal; }
+  .段落-是不是怀孕了 h1 {
+    margin: 0.3rem;
+    font-size: 1.95rem; }
+  .段落-是不是怀孕了 h3 {
+    margin: 0 1.325rem;
+    font-size: 0.75rem;
+    font-weight: normal;
+    text-align: left; }
+
+.链接-咨询专家 {
+  display: block;
+  box-sizing: border-box;
+  height: 2rem;
+  width: 13.75rem;
+  line-height: 1.6rem;
+  vertical-align: middle;
+  background-image: url("../picture/cherryButton-thin.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-align: center;
+  color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0 auto;
+  margin-top: 1.5rem; }
+
+.链接-健康热线 {
+  display: block;
+  box-sizing: border-box;
+  height: 2rem;
+  width: 13.75rem;
+  line-height: 1.6rem;
+  vertical-align: middle;
+  background-image: url("../picture/rosaButton-thin.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-align: center;
+  color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0 auto;
+  margin-top: 0.875rem; }
+
+.章节-查早孕的方法 {
+  background-color: #fbfbfb; }
+  .章节-查早孕的方法::after {
+    content: '';
+    display: block;
+    width: 4.4rem;
+    height: 0.15rem;
+    background-color: #822f69;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto; }
+
+.文本-查… {
+  width: 15.25rem;
+  font-size: 1.625rem;
+  color: #483c6c;
+  font-family: 'MicrosoftYaHei-Bold';
+  margin: 0.875rem;
+  margin-left: 0.75rem; }
+
+.wrap-1 {
+  display: flex;
+  justify-content: space-around;
+  height: 21rem; }
+  .wrap-1 > * {
+    flex-basis: 7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: inherit; }
+    .wrap-1 > * > :not(:first-child) {
+      box-sizing: border-box;
+      padding: 0 0.5rem; }
+  .wrap-1 [class^="标题-"] {
+    color: #822f69;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-top: 0.625rem; }
+  .wrap-1 [class^="文本-"] {
+    font-size: 0.6rem; }
+
+.文本-血HCG {
+  display: block;
+  box-sizing: border-box;
+  height: 2.125rem;
+  width: 100%;
+  line-height: 2.55rem;
+  vertical-align: middle;
+  background-image: url("../picture/血HCG.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-align: center;
+  color: #822f69;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+
+.文本-B超 {
+  display: block;
+  box-sizing: border-box;
+  height: 2.125rem;
+  width: 100%;
+  line-height: 2.55rem;
+  vertical-align: middle;
+  background-image: url("../picture/B超.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-align: center;
+  color: #822f69;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+
+.链接-预约检查血HCG {
+  display: block;
+  box-sizing: border-box;
+  height: 2rem;
+  width: 6.25rem;
+  line-height: 1.6rem;
+  vertical-align: middle;
+  background-image: url("../picture/cherryButton-small.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-align: center;
+  color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0 auto;
+  margin-top: 0.5rem; }
+
+.链接-预约检查B超 {
+  display: block;
+  box-sizing: border-box;
+  height: 2rem;
+  width: 6.25rem;
+  line-height: 1.6rem;
+  vertical-align: middle;
+  background-image: url("../picture/rosaButton-small.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-align: center;
+  color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0 auto;
+  margin-top: 0.5rem; }
+
+/*# sourceMappingURL=index.css.map */

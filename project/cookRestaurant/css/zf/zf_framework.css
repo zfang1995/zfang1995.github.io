@@ -1,0 +1,46 @@
+
+/*browser render reset*/
+html{
+	font-size: 15px;
+}
+*{
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+li{
+	list-style: none;
+}
+a:hover{
+	color: red;
+	text-decoration: underline;
+}
+input[type='text']{
+	padding-left: 0.7rem;
+	border: 0;
+}
+input[type='submit']{
+	cursor: pointer;
+	font-weight: bold;
+	padding: 0.3em 1em;
+}
+button:hover{
+	cursor: pointer;
+}
+/*/ browser render reset*/
+
+.button{
+	line-height: 1.42857143;
+	text-align: center;
+   	vertical-align: middle;
+   	white-space: nowrap;
+   	text-decoration: none;
+}
+.button:hover{
+	text-decoration: none;
+}
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="../css/Verification.css">
+    <link rel="stylesheet" href="../css/zf/tweak_toolkit.css">
+	<title>验证</title>
+</head>
+<body class="displayFlex descendantCenteringOnThis" style="justify-content: space-between;">
+    <div >
+        <h1 id='div-titleOfThisPage'>验证码</h1>
+        <div class="colorHex777 fontWeightBold">短信已经发送到:</div>
+    </div>
+	<div style="font-size: 1.5em;font-weight: bold;color:#ff8400;">+84 98 5234 812</div>
+	<form action="" id='form-0001'>
+		<label style="text-align: left;display: block;">PIN 码</label>
+		<div class="displayFlex" style="justify-content: space-between;margin-bottom: 1rem;" id='div-formGroup'>
+			<input type="number" name="" id="" placeholder="" >
+			<input type="number" name="" id="" placeholder="" >
+			<input type="number" name="" id="" placeholder="" >
+			<input type="number" name="" id="" placeholder="" >
+		</div>
+		<button type="submit" class="btn btn-primary figure-0001" id="button-next">下一步</button>
+	</form>
+	<table title="dailPad" id="dailPad">
+        <tbody>
+            <tr>
+                   <td value='1'>1</td>
+                   <td value='2'>2
+                    <br><span >ABC</span>
+                   </td>
+                   <td value='3'>3
+                    <br><span >DEF</span></td>
+               </tr>
+               <tr>
+                   <td value='4'>4
+                    <br><span >GHI</span></td>
+                   <td value='5'>5
+                    <br><span >JKL</span></td>
+                   <td value='6'>6
+                    <br><span >MNO</span></td>
+               </tr>
+               <tr>
+                   <td value='7'>7
+                    <br><span >PQRS</span></td>
+                   <td value='8'>8
+                    <br><span >TUV</span></td>
+                   <td value='9'>9
+                    <br><span >WXYZ</span></td>
+               </tr>
+               <tr>
+                   <td style="background-color: #d1d5db;">+*#</td>
+                   <td value='0'>0</td>
+                   <td style="background-color: #d1d5db;" id="td-delete" class="iconfont icon-backspace"></td>
+               </tr>  
+        </tbody> 
+    </table>
+<script type="text/javascript" src='../js/auto-size.js'></script>
+<script type="text/javascript" src='../js/jquery.min.js'></script>
+<script type="text/javascript">
+  var dailPad = document.getElementById('dailPad');
+  var dailPadButtons = $('#dailPad td'), arr_verificationCodes = $('#form-0001 input') ;
+  for(var i = 0, length1 = dailPadButtons.length; i < length1; i++){
+    // arr_verificationCodes.push(dailPadButtons[i].getAttribute('value'));
+    dailPadButtons[i].addEventListener('click', addThisValueIntoForm);
+  };
+    function addThisValueIntoForm ( ) {
+            var a = this.getAttribute('value');
+            for(var i = 0, length1 = arr_verificationCodes.length; i < length1; i++){
+               if(arr_verificationCodes[i].value===''){arr_verificationCodes[i].value=a;break;}
+             } 
+    };
+    document.getElementById('td-delete').removeEventListener('click', addThisValueIntoForm);
+    document.getElementById('td-delete').addEventListener('click', function deleteValueOfForm() {
+        for (var i = arr_verificationCodes.length-1; i >= 0; i--) {
+          if(arr_verificationCodes[i].value){arr_verificationCodes[i].value = '';break;}
+        }
+    })
+
+    document.getElementById('form-0001').onsubmit = function (event) {
+      event.preventDefault();
+      if(arr_verificationCodes[3].value){document.location = 'sign_in.html';}
+      var dObj_titleOfThisPage = document.getElementById('div-titleOfThisPage');
+        for (var i = 0; i < arr_verificationCodes.length; i++) {
+          if((!arr_verificationCodes[i].value)||(arr_verificationCodes[i].value=='')){
+            dObj_titleOfThisPage.textContent = '请输入有效的验证码';
+            return false;
+          }
+      }
+    }
+</script>
+</body>
+</html>

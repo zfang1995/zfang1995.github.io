@@ -1,0 +1,20 @@
+@import 'thisSite.framework.scss';
+
+.form-group{
+	margin-top: (82 / $REMtoPXratio) + rem;
+	margin-bottom: (82 / $REMtoPXratio) + rem;
+}
+h1{
+	margin-top: 1.8rem; margin-bottom: auto;
+}
+select{
+	width: (245 / $REMtoPXratio) + rem;
+	appearance:none;
+	-webkit-appearance:none;
+}
+button.btn-primary{
+	margin-top: 1rem;
+}
+#random-0001{
+	margin-top: auto; margin-bottom: auto;
+}

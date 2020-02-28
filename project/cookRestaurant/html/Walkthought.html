@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="../css/Walkthought.css">
+    <title>随便看看</title>
+</head>
+<body class="displayFlex childsCenteringOnThis">
+    <h2 style="margin-top: auto;">今天的午餐就选——</h2>
+    <h1 style="margin-bottom: auto;">换下新口味！
+        <br>今天我们就尝尝这个吧!
+    </h1>
+    <div class="slide">
+        <div class="swiper-container">  
+            <div class="swiper-wrapper" >
+                <div class="sildingDoor swiper-slide">
+                <div>
+                    <div role="img" style="background-image: url('../img/dish%20(1).png');" class="random-0001"></div>
+                </div>
+                <div>
+                    <h1>瓜娃子闷墩餐馆</h1>
+                    <div>&#9679; 成都天华路</div>
+                    <p>阿达第十三擦拭初三从拿什么洒满潇洒森林萨<br>拉迪诺三撒打算打算阿斯达撒啊都问我</p>
+                </div>
+                </div>
+                <div class="sildingDoor swiper-slide">
+                <div>
+                    <div role="img" style="background-image: url('../img/dish%20(1).png');" class="random-0001"></div>
+                </div>
+                <div>
+                    <h1>瓜娃子闷墩餐馆</h1>
+                    <div>&#9679; 成都天华路</div>
+                    <p>阿达第十三擦拭初三从拿什么洒满潇洒森林萨<br>拉迪诺三撒打算打算阿斯达撒啊都问我</p>
+                </div>
+                </div>
+                <div class="sildingDoor swiper-slide">
+                <div>
+                    <div role="img" style="background-image: url('../img/dish%20(1).png');" class="random-0001"></div>
+                </div>
+                <div>
+                    <h1>瓜娃子闷墩餐馆</h1>
+                    <div>&#9679; 成都天华路</div>
+                    <p>阿达第十三擦拭初三从拿什么洒满潇洒森林萨<br>拉迪诺三撒打算打算阿斯达撒啊都问我</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: auto; margin-bottom: auto;"><a href="search.html" style="color: white;">返回</a></div>
+<script type="text/javascript" src='../js/auto-size.js'></script>
+<script type="text/javascript" src='../js/jquery.min.js'></script>
+<script type="text/javascript" src='../js/swiper.jquery.min.js'></script>
+<script type="text/javascript">
+    
+    var swiper = new Swiper('.swiper-container', {
+        initialSlide:1,
+        'centeredSlides': true,
+        // setWrapperSize: true,
+        // loop : true,
+        // loopAdditionalSlides: 1,
+        // autoplay: 3000,
+        // autoplayDisableOnInteraction:false,
+        speed: 2000,
+        spaceBetween: calcSpaceWidth()
+    });
+    function calcSpaceWidth () {
+        var a = 66*(window.innerWidth / 720) * 100/172.5;
+        return a;
+    }
+</script>
+<script type="text/javascript">
+    // var evt_resize = 'onorientationchange' in window ? 'orientationchange' : 'resize';
+    // window.addEventListener(evt_resize,function () {
+    //     swiper.params.spaceBetween = getHtmlFontSize();
+    //     swiper.onResize();
+    // },false)
+</script>
+</body>
+</html>

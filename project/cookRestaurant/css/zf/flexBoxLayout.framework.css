@@ -1,0 +1,18 @@
+.displayFlex {
+  display: flex; }
+  .displayFlex.havingMutipleEqualWidthColumns {
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: space-around; }
+    .displayFlex.havingMutipleEqualWidthColumns > .column {
+      flex: 1 0; }
+  .displayFlex.flowLayout {
+    flex-flow: row wrap;
+    align-content: flex-start; }
+  .displayFlex.childsCenteringOnThis {
+    flex-direction: column;
+    justify-content: center; }
+    .displayFlex.childsCenteringOnThis > * {
+      margin: auto; }
+
+/*# sourceMappingURL=flexBoxLayout.framework.css.map */

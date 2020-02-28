@@ -1,0 +1,63 @@
+@import '_thisSite.framework.scss';
+
+h6{
+    color:#5d5d5d;
+}
+#div-titleBarMyOder{
+    height: (132 / $REMtoPXratio) + rem; width: 100%;
+    position: relative;
+    &>div{
+        width: 100%;
+        position: fixed;
+        text-align: center; line-height: (132 / $REMtoPXratio) + rem; vertical-align: middle;
+        font-weight: bold;
+        background-color: white;
+    }
+}
+
+#div-mainContentAera{
+    width: 100%; min-height: 100vh; height: auto;
+    padding-top: (38 / $REMtoPXratio) + rem;
+    background-color: #efeff3;
+    #div-complete{
+        @extend .displayFlex;
+        @extend .displayFlex.descendantCenteringOnThis;
+        margin-top:(60 / $REMtoPXratio) + rem;
+        width: (1242 / $REMtoPXratio) + rem; height: (1542 / $REMtoPXratio) + rem;
+        background-color: white;
+        img{
+            width: (415 / $REMtoPXratio) + rem; height: (415 / $REMtoPXratio) + rem;
+        }
+    }
+} 
+.priceTag-1{
+    margin-right: (100 / $REMtoPXratio) + rem !important;
+}
+
+
+#div-random-0213{
+    margin-bottom: (50 / $REMtoPXratio) + rem;
+    width: inherit;
+    padding: (30 / $REMtoPXratio) + rem;
+    font-size: 1.26em;
+    background-color: white;
+}
+    #div-switch{
+        width: 100%; height: (165 / $REMtoPXratio) + rem;
+        border: 2px solid #ff8400;
+        display:flex;
+        &>div{
+            flex: 1 0;
+            display: flex;
+            justify-content: space-around; align-items: center;
+            background-color: #fff;
+            color: #ff8400;
+            &._selected{
+                background-color:#ff8400;
+                color:white;
+            }
+        }
+    }
+.icon-ic-add{
+    color: #636363;
+}

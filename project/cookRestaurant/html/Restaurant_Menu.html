@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="../css/Restaurant_Menu.css">
+    <link rel="stylesheet" href="../css/zf/tweak_toolkit.css">
+    <title>餐馆菜单</title>
+</head>
+<body>
+    <div title="Restaurant tumbnail" role='img' style="background-image: url(../img/restaruant.png);" id="div-banner-1">
+        <nav class="displayFlex" style="align-items: center;justify-content: space-around;">
+            <a role="img" style="width: 0.29rem;height: 0.29rem;font-size: 1.5em;color: white;" class="icon-ic-add iconfont" href="search.html"></a>
+            <h2 style="color: white;">瓜娃子和闷墩的口水饭馆</h2>
+            <a role="img" style="width: 0.29rem;height: 0.29rem;font-size: 1.5em;color: white;" class="icon-ic-heart iconfont"></a>
+        </nav>
+    </div>
+    <div class="panel-2" id='div-restaruantNavigation-1'>
+        <div class="displayFlex" style="align-items: baseline;justify-content: space-around;">
+            <div style="color: #888;">
+                <h5>瓜娃子和闷墩的口水饭馆</h5>
+                重庆，九龙坡<span style="color: #ff8400">-距离 两千米</span>
+            </div>
+            <a id="button-open-1" role='button' href="Walkthought.html">打开</a>
+        </div>
+        <div class="displayFlex having3EqualWidthColumns">
+            <div class="column selected" style="flex-basis: auto;flex-grow: 0;"><a href="Restaurant_Menu.html" style='color: black;'>菜单</a></div>
+            <div class="column" style="flex-basis: auto;flex-grow: 0;"><a href="Restaurant_About.html" style='color: black;'>关于</a></div>
+            <div class="column" style="flex-basis: auto;flex-grow: 0;"><a href="Restaurant_Review.html" style='color: black;'>回顾</a></div>
+        </div>
+    </div>
+    <div id='div-foodCatalog-1' class="displayFlex flowLayout">
+        <div class="item">
+            <div role='img' class="foodThumbnail-1" style="background-image: url('../img/dish%20(1).png');"></div>
+            <div>
+                <h6>霸王餐</h6>
+                <div>
+                    <span class="priceTag-1">$22</span><span style="" class="numericalSetter"><button class="random-8974 _1"></button><span class="random-2356">1</span><button  class="random-8974 _2"></button></span>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div role='img' class="foodThumbnail-1" style="background-image: url('../img/dish%20(3).png');"></div>
+            <div>
+                <h6>霸王餐</h6>
+                <div>
+                    <span class="priceTag-1">$22</span><span style="" class="numericalSetter"><button class="random-8974 _1"></button><span class="random-2356">1</span><button  class="random-8974 _2"></button></span>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div role='img' class="foodThumbnail-1" style="background-image: url('../img/dish%20(2).png');"></div>
+            <div>
+                <h6>霸王餐</h6>
+                <div>
+                    <span class="priceTag-1">$22</span><span style="" class="numericalSetter"><button class="random-8974 _1"></button><span class="random-2356">1</span><button  class="random-8974 _2"></button></span>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div role='img' class="foodThumbnail-1" style="background-image: url('../img/dish%20(3).png');"></div>
+            <div>
+                <h6>霸王餐</h6>
+                <div>
+                    <span class="priceTag-1">$22</span><span style="" class="numericalSetter"><button class="random-8974 _1"></button><span class="random-2356">1</span><button  class="random-8974 _2"></button></span>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div role='img' class="foodThumbnail-1" style="background-image: url('../img/dish%20(4).jpg');"></div>
+            <div>
+                <h6>霸王餐</h6>
+                <div>
+                    <span class="priceTag-1">$22</span><span style="" class="numericalSetter"><button class="random-8974 _1"></button><span class="random-2356">1</span><button  class="random-8974 _2"></button></span>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div role='img' class="foodThumbnail-1" style="background-image: url('../img/dish%20(5).png');"></div>
+            <div>
+                <h6>霸王餐</h6>
+                <div>
+                    <span class="priceTag-1">$22</span><span style="" class="numericalSetter"><button class="random-8974 _1"></button><span class="random-2356">1</span><button  class="random-8974 _2"></button></span>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" src='../js/auto-size.js'></script>
+<script type="text/javascript" src='../js/jquery.min.js'></script>
+<script type="text/javascript" src='../js/thisSite.framework.js'></script>
+<script type="text/javascript">
+    var $_setOf_numericalSetter = $('.numericalSetter .random-8974');
+    for(var i = 0, length1 = $_setOf_numericalSetter.length; i < length1; i++){
+        if(isEven(i+1)){
+            $_setOf_numericalSetter[i].addEventListener('click', plusOne);
+        }else {
+            $_setOf_numericalSetter[i].addEventListener('click', minusOne);
+        }
+    }
+</script>
+<script type="text/javascript">
+    addFunc_likeOrDislike()
+</script>
+</body>
+</html>

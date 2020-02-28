@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="../css/Oder1.css">
+    <link rel="stylesheet" href="../css/zf/tweak_toolkit.css">
+    <title>我的订单</title>
+</head>
+<body>
+     <div id='div-titleBarMyOder'>
+         <div><i class="iconfont icon-ic-add" style="position: absolute; left: 0.35rem; top: 0rem;"></i>
+            <h6>我的订单</h6>
+         </div>
+     </div>
+     <div id="div-mainContentAera" title="dishes list">
+        <nav id="nav-shoppingSteps">
+            <div>
+                <div class="shoppingStep _complete"></div>
+                <div class="shoppingStep ">2</div>
+                <div class="shoppingStep ">3</div>
+                <div class="shoppingStep ">4</div>
+                <hr>
+            </div>
+            <div>
+                <div class="random-3879">预览</div>
+                <div class="random-3879">购买</div>
+                <div class="random-3879">支付</div>
+                <div class="random-3879">完成</div>
+            </div>
+        </nav>
+         <div class="panel _1">
+             <div role='img' style="background-image: url('../img/dish%20(1).png');"></div>
+             <div style="display: flex;flex-direction: column;justify-content: space-between;">
+                 <div>
+                    <h6>菜品</h6>
+                    <div>套餐 1, 套餐 2</div>
+                 </div>
+                <div class="priceTag-1">
+                    $22
+                </div>
+             </div>
+             <div>
+                 <span style="" class="numericalSetter"><button class="random-8974 _1"></button><span class="random-2356">1</span><button  class="random-8974 _2"></button></span>
+             </div>
+         </div>
+         <div class="panel _1">
+             <div role='img' style="background-image: url('../img/dish%20(2).png');"></div>
+             <div style="display: flex;flex-direction: column;justify-content: space-between;">
+                 <div>
+                    <h6>菜品</h6>
+                    <div>套餐 1, 套餐 2</div>
+                 </div>
+                <div class="priceTag-1">
+                    $50
+                </div>
+             </div>
+             <div>
+                 <span style="" class="numericalSetter"><button class="random-8974 _1"></button><span class="random-2356">1</span><button  class="random-8974 _2"></button></span>
+             </div>
+         </div>
+         <div class="panel _1">
+             <div role='img' style="background-image: url('../img/dish%20(3).png');"></div>
+             <div style="display: flex;flex-direction: column;justify-content: space-between;">
+                 <div>
+                    <h6>菜品</h6>
+                    <div>套餐 1, 套餐 2</div>
+                 </div>
+                <div class="priceTag-1">
+                    $12
+                </div>
+             </div>
+             <div>
+                 <span style="" class="numericalSetter"><button class="random-8974 _1"></button><span class="random-2356">1</span><button  class="random-8974 _2"></button></span>
+             </div>
+         </div>
+         <div class="panel _1">
+             <div role='img' style="background-image: url('../img/dish%20(5).png');"></div>
+             <div style="display: flex;flex-direction: column;justify-content: space-between;">
+                 <div>
+                    <h6>菜品</h6>
+                    <div>套餐 1, 套餐 2</div>
+                 </div>
+                <div class="priceTag-1">
+                    $32
+                </div>
+             </div>
+             <div>
+                 <span style="" class="numericalSetter"><button class="random-8974 _1"></button><span class="random-2356">1</span><button  class="random-8974 _2"></button></span>
+             </div>
+         </div>
+         <div id="div-random-2">
+             <div>
+                 <div>食品费:</div>
+                 <div class="priceTag-1" id="div-subTotalAmount">$59</div>
+             </div>
+             <div>
+                 <div>运费:</div>
+                 <div class="priceTag-1">$3</div>
+             </div>
+             <div>
+                 <div>减免:</div>
+                 <div class="priceTag-1">-$5</div>
+             </div>
+             <hr>
+             <div>
+                 <div>总计:</div>
+                 <div class="priceTag-1" id="div-grandTotalAmount">$57</div>
+             </div>
+         </div>
+     </div>
+     <div class="placeholder" style="height: 0.95652rem;"></div>
+     <a id='div-checkOut' href="Oder2.html" style='color: white;'>下一步</a>
+<script type="text/javascript" src='../js/auto-size.js'></script>
+<script type="text/javascript" src='../js/jquery.min.js'></script>
+<script type="text/javascript" src='../js/thisSite.framework.js'></script>
+<script type="text/javascript">
+    var $_setOf_numericalSetter = $('.numericalSetter .random-8974');
+    for(var i = 0, length1 = $_setOf_numericalSetter.length; i < length1; i++){
+        if(isEven(i+1)){
+            $_setOf_numericalSetter[i].addEventListener('click', plusOne);
+            $_setOf_numericalSetter[i].addEventListener('click', countCost);
+        }else {
+            $_setOf_numericalSetter[i].addEventListener('click', minusOne);
+            $_setOf_numericalSetter[i].addEventListener('click', countCost);
+        }
+    }
+    var shippingFreeAmount = 3;
+    var disCountAmount = 5;
+    window.onload = countCost;  
+</script>
+<script type="text/javascript">
+    document.querySelector('.icon-ic-add').addEventListener('click',function () {
+    document.location = 'search.html';
+})
+</script>
+</body>
+</html>

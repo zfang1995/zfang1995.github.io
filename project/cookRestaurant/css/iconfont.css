@@ -1,0 +1,47 @@
+
+@font-face {font-family: "iconfont";
+  src: url('../font/iconfont.eot?t=1500260314218'); /* IE9*/
+  src: url('../font/iconfont.eot?t=1500260314218#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../font/iconfont.woff?t=1500260314218') format('woff'), /* chrome, firefox */
+  url('../font/iconfont.ttf?t=1500260314218') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../font/iconfont.svg?t=1500260314218#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-ic-add:before { content: "\e601"; }
+
+.icon-ic-cart:before { content: "\e602"; }
+
+.icon-ic-history:before { content: "\e603"; }
+
+.icon-ic-heart:before { content: "\e604"; }
+
+.icon-ic-home:before { content: "\e605"; }
+
+.icon-ic-facvorites:before { content: "\e606"; }
+
+.icon-ic-delete:before { content: "\e607"; }
+
+.icon-ic-search:before { content: "\e608"; }
+
+.icon-ic-search1:before { content: "\e609"; }
+
+.icon-ic-user:before { content: "\e60a"; }
+
+.icon-magnifier:before { content: "\e60b"; }
+
+.icon-location:before { content: "\e60c"; }
+
+.icon-yellowStar:before { content: "\e60d"; }
+
+.icon-ic-arrow:before { content: "\e60e"; }
+
+.icon-backspace:before { content: "\e60f"; }
+

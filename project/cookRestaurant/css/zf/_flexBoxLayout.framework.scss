@@ -1,0 +1,65 @@
+$flexContext: displayFlex ;
+
+.#{$flexContext}{
+	display:flex;
+	&.havingMultipleEqualWidthColumns{
+		flex-flow: row nowrap;
+		align-items: flex-start;
+		justify-content: space-around;
+		&>.column{
+			flex: 1 0;
+		}
+	}
+	&.flowLayout{
+		flex-flow: row wrap;
+		align-content: flex-start;
+		justify-content: space-between;
+	}
+	&.childsCenteringOnThis{
+		flex-direction: column; 
+		justify-content: center;
+		&>*{
+			margin-left:auto; margin-right:auto;
+		}
+		&:first-child{
+			margin-top: auto;
+		}
+		&:last-child{
+			margin-bottom: auto;
+		}
+	}
+	&.descendantCenteringOnThis{
+		flex-direction: column; 
+		justify-content: center;
+		*{
+			margin-left:auto; margin-right:auto;
+			text-align: center;
+		}
+		//此处应有补丁
+	}
+	@for $i from 1 through 12 {
+		&.having#{$i}EqualWidthColumns {
+			flex-flow: row nowrap;
+			align-items: flex-start;
+			justify-content: space-around;
+			&>.column{
+				flex: 1 0 ((100% / $i));
+			}
+		}
+	}
+	
+
+}
+
+// Name havingMultipleEqualWidthColumns
+// Desc
+// Input type=number
+// Return type=css statement
+@mixin havingMultipleEqualWidthColumns($munberOfColumns) {
+	flex-flow: row nowrap;
+	align-items: flex-start;
+	justify-content: space-around;
+	&>.column{
+		flex: 1 0 ((100 / $munberOfColumns) + '%');
+	}
+}

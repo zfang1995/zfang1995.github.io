@@ -1,0 +1,114 @@
+@import '_thisSite.framework.scss';
+
+[role='img']{
+    background-size: auto 45%;
+    background-position: center 15%;
+}
+
+#input-search{
+    height: auto;
+    border-bottom: 0;
+    &:focus{
+        border:none;
+    }  
+}
+    [for='input-search']{
+        height: 100%; width: 100%;
+    }
+
+.panel-1{
+    z-index: 1;background-color: white;
+    border-radius: 0.5em;
+    &#div-searchBar-1{
+        top: (60 / $REMtoPXratio) + rem; 
+        width: (1122 / $REMtoPXratio) + rem; height: (215 / $REMtoPXratio) + rem;
+    }
+    &#div-suggestionPanel-1{
+        top: (312 / $REMtoPXratio) + rem; 
+        width: (1122 / $REMtoPXratio) + rem; height: (265 / $REMtoPXratio) + rem;
+        align-items: flex-start;
+    }
+    &#div-suggestionPanel-2{
+        top: (312 * 2 / $REMtoPXratio) + rem; 
+        width: (1122 / $REMtoPXratio) + rem; height: (265 / $REMtoPXratio) + rem;
+        align-items: flex-start;
+    }
+    &#div-suggestionPanel-3{
+        top: (312 * 3 / $REMtoPXratio) + rem; 
+        width: (1122 / $REMtoPXratio) + rem; height: (265 / $REMtoPXratio) + rem;
+        align-items: flex-start;
+    }
+    &#div-suggestionPanel-4{
+        top: (312 * 4 / $REMtoPXratio) + rem; 
+        width: (1122 / $REMtoPXratio) + rem; height: (265 / $REMtoPXratio) + rem;
+        align-items: flex-start;
+    }
+    &#div-suggestionPanel-5{
+        top: (312 * 5 / $REMtoPXratio) + rem; 
+        width: (1122 / $REMtoPXratio) + rem; height: (265 / $REMtoPXratio) + rem;
+        align-items: flex-start;
+    }
+    position: fixed;
+    display: flex; 
+    align-items: baseline;
+    left:0; right: 0;
+    margin: auto;
+    box-shadow: 0 0.1rem .2rem #ddd;
+    &>*{
+        margin: (10 / $REMtoPXratio) + rem 0;
+    }
+    &>*:first-child{
+        font-size: 2em;
+        margin: (10 / $REMtoPXratio) + rem ((56.5 / $REMtoPXratio) + rem);
+        color: orange;
+        &.thumbnail-1{
+            width: 1.13rem; height: 1.13rem;
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
+            align-self: center;
+        }
+    }
+    &>div:nth-of-type(2){
+        flex-grow: 1;align-self: flex-start;
+    }
+    &>*:last-child{
+        width: (56 / $REMtoPXratio) + rem; height: (56 / $REMtoPXratio) + rem;
+        align-self: center;
+        margin-left: (64 / $REMtoPXratio) + rem; margin-right: (64 / $REMtoPXratio) + rem;
+        font-size: 2em;
+        background-size: contain; background-position: center center; background-repeat: no-repeat;
+        color: orange;
+    }
+}
+
+#nav-1{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    box-shadow: 0 0.2rem 1rem gray;
+    &>.nav-item{
+        height: (150 / $REMtoPXratio) + rem;
+        line-height: 1.45rem; vertical-align: bottom;
+        text-align: center;
+        color: #939393;
+        background-position: 50% 30%;
+    }
+    a{
+        color: #939393; font-weight: normal;
+    }
+}
+    #i3{
+        position: absolute; left:0; right:0;
+        margin: 0 auto;margin-top: -0.35rem;
+        width: (165 / $REMtoPXratio) + rem; height: (165 / $REMtoPXratio) + rem;
+        border-radius:100%;
+        background-size: 45%; background-position: center center;
+        background-color: #fe7b08;
+        box-shadow: 0 0.125rem 0.25rem #ffc291;
+    }
+// 把高德地图的组件移到其他网页元素的底层。
+[class^='amap-']{
+    z-index: -1;
+}
+// /把高德地图的组件移到其他网页元素的底层。

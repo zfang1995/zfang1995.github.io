@@ -1,0 +1,297 @@
+
+/********
+**-Nav-**
+********/
+
+/* General */
+
+.naive {
+    display: flex;
+    font-size: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    transition: background 250ms ease;
+    text-transform: uppercase;
+}
+
+.nav--fixed {
+    position: fixed;
+    width: 100%;
+    z-index: 4;
+}
+.nav--absolute {
+    position: absolute;
+    width: 95%;
+    z-index: 4;
+}
+
+
+/* Logo */
+
+.nav__logo {
+    display: flex;
+    flex-direction: row;
+    font-size: 1rem;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 100%;
+    width: auto;
+    z-index: 2;
+}
+
+.nav__logo-nick {
+    display: inline-block;
+    background: url('../img/site-logo.svg') 0 0;
+    background-size: cover;
+    overflow: hidden;
+    width: 10rem;
+    height: 2em;
+    max-width: 3.2em;
+}
+
+.nav__logo-field {
+    display: inline-block;
+    background: url('../img/site-logo.svg') 0 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 7rem;
+    height: 3rem;
+    max-width: 7rem;
+}
+
+
+
+/* Toggle */
+
+.nav__button {
+    display: none;
+    font-size: 2rem;
+    z-index: 2;
+    width: 1em;
+    height: .75em;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    color: white;
+}
+.nav__toggle-line {
+    width: 100%;
+    height: 10%;
+    background: white;
+    display: block;
+    transition: all 150ms ease;
+    top: -0.2rem;
+}
+
+.nav__toggle-line--top {
+    position: absolute;
+    top: -0.2rem;
+}
+
+/*.nav__toggle-line--bottom {
+    position: absolute;
+    bottom: 0;
+}*/
+
+
+
+/* Links */
+
+/* Site */
+
+
+
+
+
+/*** Open ***/
+
+.nav--open .nav__logo {
+    color: white;
+}
+
+.nav--open .nav__links-container {
+    display: block;
+    top: 0;
+    opacity: 1;
+}
+
+.nav--open .nav__toggle-line--top {
+    top: 45%;
+    transform: rotate(45deg);
+    background: white;
+}
+.nav--open .nav__toggle-line--bottom {
+    bottom: 45%;
+    transform: rotate(-45deg);
+    background: white;
+}
+
+
+/*** Hover ***/
+
+.nav__link:hover,
+.nav__button:hover,
+.nav__logo:hover,
+.nav__social:hover {
+
+}
+
+.nav__link:hover {
+
+}
+
+
+
+
+@media screen and (min-width: 1080px) {
+    
+    .nav__links-container {
+        display: block;
+        background: none;
+        position: static;
+        float: right;
+        width: 530px;
+        height: 3rem;
+        /*padding-bottom: 2rem;*/
+        z-index: 1;
+    }
+    .nav__links {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+    .nav__links>li{
+        flex-grow: 1;
+    }
+    .nav__link {
+        display: block;
+        text-decoration: none;
+        color: white;
+    }
+
+}
+
+@media screen and (max-width: 1080px) {
+    .nav__links-container {
+        display: none;
+        background-color: rgba(224,84,66,0.9);
+        position: fixed;
+        width: 100%;
+        height: 65vh;
+        min-height: 300px;
+        top: -100%;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        transition: all .3s cubic-bezier(.27,.89,.29,.82);
+        /*padding-bottom: 2rem;*/
+        z-index: 1;
+        box-shadow: 0 3px 3px 0 black;
+    }
+    .nav__links {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+    
+    
+    .nav__link {
+        display: block;
+        padding: 0.5rem;
+        border: 1px solid black; border-width: 0 0 1px 0;
+        text-decoration: none;
+        color: white;
+        opacity: 1;
+    }
+
+
+    .nav__button{
+        display: block;
+    }
+
+}
+@media screen and (max-width: 640px) {
+
+    .nav--absolute{
+        width: 90%;
+    }
+
+}
+
+/** Tablet **/
+/** Desktop **/
+
+/*@media screen and (min-width: 900px) {
+
+    .nav {
+        font-size: 1.2rem;
+    }
+
+    .nav__links-container,
+    .nav__socials {
+        padding-bottom: 1rem;
+    }
+
+
+}
+*/
+/** Large Desktop **/
+
+/*@media screen and (min-width: 1500px) {
+
+    /** Nav **/
+/*
+    .nav {
+        justify-content: flex-end;
+        padding: 2rem 2.5rem;
+    }
+
+    .nav--fixed {
+        width: 25%;
+        height: calc(50% - 11rem);
+    }
+
+    .nav__logo {
+        flex-direction: column;
+        height: 100%;
+        font-size: 2rem
+    }
+
+    .nav__links-container {
+        top: 0;
+        opacity: 1;
+        width: 25%;
+        transition-duration: 0ms;
+    }
+
+    .nav__link {
+        padding: 3rem;
+        text-align: right;
+        margin-left: auto;
+    }
+
+    .nav__button {
+        display: none;
+    }
+
+    .nav__link:hover {
+        transform-origin: 90% 30%;
+    }
+}*/
+/**/

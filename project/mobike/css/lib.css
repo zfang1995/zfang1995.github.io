@@ -1,0 +1,62 @@
+/*
+meta: the second-generation CSS code snippets library .
+--------------------------
+what is the news ? : 严格按照英语语法重新定义了给类别命名的方法。
+-----------------
+类名的命名规则：
+1. 每个类名只能包含一个主语，用作主语的单词的首字母必须大写。
+2. 名词的前缀是‘-’，但是第一个词必须以“.”为前缀。
+3. 形容词的前缀是‘.’。
+4. 
+*/
+
+
+
+/*基础的*/
+.red.text{color: red;}.gray.text{color: gray;}.white.text{color: white;}.color-005aa0-text{color: #005aa0;}
+.bold.text{font-weight: bold;}.text-justify {text-align: justify;}.text-nowrap {white-space: nowrap;}.text-lowercase {text-transform: lowercase;}.text-uppercase {text-transform: uppercase;}.text-capitalize {text-transform: capitalize;}.xx-large-text{font-size: xx-large;}
+.text-align-center{text-align: center;}.text-align-right{text-align: right;}.text-align-left{text-align: left;}
+.left-floating{float: left;}.left-floated{float: left;}.right-floated{float: right;}.leftFloated{float: left;}
+.relative-positioned{position: relative;}.absolute-positioned{position: absolute;}.fixed-positioned{position: fixed;}
+.block.displayed{display: block;}.block-displayed{display: block;}
+.inline.displayed{display: inline;}
+.inline.block-displayed{display: inline-block;}.inline.block.displayed{display: inline-block;}
+.flex-displayed{display: flex;} .flex-items-align-center{align-items: center;}
+.inherited-width{width: inherit;}.inherited-height{height: inherit;}
+/*/ 基础的*/
+
+[role='div']{display: block;}[role='division']{display: block;}[role='span']{display: inline;}[role='span']{display: inline;}
+
+/* clearfix ——解决子元素浮动导致父元素的高度塌陷的问题*/
+.clearfix:before,.clearfix:after {
+  content: "";
+  display: table;
+}
+	.clearfix:after {
+	  clear: both;
+	}
+	.clearfix {
+	  *zoom: 1;
+	}	
+/*/ clearfix*/
+
+/*absolute centering on the Stack Context*/
+.absoluteCenteringOnTheStackContext {
+	margin: auto;
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+}
+/*/ absolute centering on the Stack Context*/
+
+.-childsFloatLeft>*{
+	float: left;
+}
+
+/*让包含了若干个子元素的容器及其子元素在当前的层叠上下文内居中*/
+.让包含了若干个子元素的容器及其子元素在当前的层叠上下文内居中 {
+	position: absolute;top: 0; right: 0; bottom: 0; left: 0;
+	display: flex; flex-direction: column; justify-content: center;
+	margin:auto;
+	text-align: center;
+}
+/* /让包含了若干个子元素的容器及其子元素在当前的层叠上下文内居中*/

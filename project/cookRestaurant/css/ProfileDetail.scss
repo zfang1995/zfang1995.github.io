@@ -1,0 +1,30 @@
+@import '_thisSite.framework.scss';
+
+#div-titleBar{
+    height: (132 / $REMtoPXratio) + rem; width: 100%;
+    position: fixed;
+    text-align: center; line-height: (132 / $REMtoPXratio) + rem; vertical-align: middle;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    h6{
+        color: white;
+    }
+}
+#div-headPortrait{
+    position: absolute;
+    top: (452 / $REMtoPXratio) + rem;
+    left:0; right:0;
+    margin: auto;
+}
+
+.random-1099{
+    display: flex; justify-content: space-between;
+    height: (180 / $REMtoPXratio) + rem;
+    line-height: (180 / $REMtoPXratio) + rem; vertical-align: middle;
+    border-bottom: 3px solid #e4e4e4;
+
+}
+.icon-ic-add{
+    color: white;
+}

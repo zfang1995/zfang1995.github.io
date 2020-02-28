@@ -1,0 +1,294 @@
+@import 'normalize/normalize';
+@import 'zf/zf_lib.scss';
+@import 'zf/flexBoxLayout.framework.scss';
+@import  'iconfont.css';
+
+@include  normalize();
+
+$REMtoPXratio : 172.5;
+
+*{
+	box-sizing: border-box;
+}
+body{
+	height: 100vh; width: inherit;
+    margin: 0;
+	font-size: (38 / $REMtoPXratio) + rem;
+	overflow-x: hidden; overflow-y: scroll;
+	font-family: 'HelveticaNeue', sans-serif;
+}
+a{
+	font-weight: bold;
+	text-decoration-line: none;
+	color: #00baff;
+    &._1{
+        font-weight: normal;
+        color: black;
+    }
+    &._normal{
+        font-weight: normal;
+    }
+    &._black{
+        color: black;
+    }
+    &._white{
+        color: white;
+    }
+}
+legend{
+	width: 0; height: 0; visibility: hidden;
+}
+h1{
+	color: #5d5d5d;
+}
+    h5{
+        margin-bottom: 1em; margin-top: 1em;
+    }
+    h6{
+        margin-bottom:0; margin-top: 0;
+        font-size: 1.105em;
+        color: #6a6a6a;
+    }
+input[type='text'],select,input[type='password'],input[type='number']{
+	height: (150 / $REMtoPXratio) + rem;
+	border:none; border-bottom: ((5 / $REMtoPXratio) +rem) solid #e4e4e4;
+    line-height: 0.64rem; vertical-align: top;
+	text-align: left ;
+	font-size: (60 / $REMtoPXratio) + rem;
+    background-color: transparent;
+	color: #939393;
+	appearance:none;
+	-webkit-appearance:none;
+    -moz-appearance:none;
+}
+label{
+    display:block;
+	font-size: (42 / $REMtoPXratio) + rem;
+	font-weight: bold;
+	font-family: 'HelveticaNeue-Medium', sans-serif;
+    text-transform: capitalize;
+	color: #ff8400;
+}
+button{
+	border: none;
+    padding: 0;
+    -webkit-appearance: none; appearance: none; 
+    // background-color: white;
+	&.btn-primary{
+		width: (878 / $REMtoPXratio) + rem; height: (165 / $REMtoPXratio) + rem;
+		border-radius: 0.5em;
+		font-size: 1.2em; font-weight: bold;
+		color: white;
+		background-image: linear-gradient(to left bottom, #fe6f12, #ff7e05);
+		box-shadow: 0em 1em 2em 0 	rgba(255, 210, 174, 0.8);
+	}
+    &.figure-0001{
+        border-radius: 9em;
+    }
+
+}
+hr{
+
+    width:90%; margin-left: auto; margin-right: auto;
+    height:0.1em; max-height: 5px;
+    border-radius:100%;
+    background-color:#eee;
+}
+p{
+    text-align: justify;
+    word-wrap: break-word;
+    width: 100%;
+}
+.priceTag-1{
+    font-size: (48 / $REMtoPXratio) + rem; font-weight: bold;
+    color:#fb3d3c;
+}
+.progressBar{
+    background-color: #e3e3e3;
+    &>.-inner{
+        height:100%;
+        background-color: orange;
+    }
+}
+
+.panel{
+    display: block;
+    display: flex;
+    align-items: baseline;
+    left:0; right: 0;
+    margin: auto;
+    box-shadow: 0 0.1rem .2rem #ddd;
+    background-color: white;
+    &._1{
+        width: (1182 / $REMtoPXratio) + rem; height: (285 / $REMtoPXratio) + rem;
+        margin-top: (25 / $REMtoPXratio) + rem; margin-bottom: (25 / $REMtoPXratio) + rem;
+        &>div{
+            margin:auto; margin-left: 0.6rem;
+        }
+        [role='img']{
+            width: 1.25rem;height: 1.25rem;
+            background-size: cover;
+            margin-right: (-50 / $REMtoPXratio) + rem; margin-left: (38 / $REMtoPXratio) + rem;
+        }
+        &>:nth-of-type(2){
+           height: 1.1rem;
+           display: flex;flex-direction: column;justify-content: space-between;
+        }
+    }
+    &._2{
+        @extend .panel._1;
+        &>div{
+            margin-left: auto;
+        }
+        &>:nth-of-type(3){
+            height:1.1rem;
+        }
+    }
+    &._3{
+        position: fixed;
+        z-index: 1;
+        border-radius: 0.5em;
+        &#div-searchBar-1{
+            top: (60 / $REMtoPXratio) + rem; 
+            width: (1122 / $REMtoPXratio) + rem; height: (215 / $REMtoPXratio) + rem;
+        }
+        &#div-suggestionPanel-1{
+            top: (312 / $REMtoPXratio) + rem; 
+            width: (1122 / $REMtoPXratio) + rem; height: (265 / $REMtoPXratio) + rem;
+            align-items: flex-start;
+        }
+        &#div-suggestionPanel-2{
+            top: (312 * 2 / $REMtoPXratio) + rem; 
+            width: (1122 / $REMtoPXratio) + rem; height: (265 / $REMtoPXratio) + rem;
+            align-items: flex-start;
+        }
+        &#div-suggestionPanel-3{
+            top: (312 * 3 / $REMtoPXratio) + rem; 
+            width: (1122 / $REMtoPXratio) + rem; height: (265 / $REMtoPXratio) + rem;
+            align-items: flex-start;
+        }
+        &#div-suggestionPanel-4{
+            top: (312 * 4 / $REMtoPXratio) + rem; 
+            width: (1122 / $REMtoPXratio) + rem; height: (265 / $REMtoPXratio) + rem;
+            align-items: flex-start;
+        }
+        &#div-suggestionPanel-5{
+            top: (312 * 5 / $REMtoPXratio) + rem; 
+            width: (1122 / $REMtoPXratio) + rem; height: (265 / $REMtoPXratio) + rem;
+            align-items: flex-start;
+        }
+        &>*{
+            margin: (10 / $REMtoPXratio) + rem 0;
+        }
+        &>*:first-child{
+            font-size: 2em;
+            margin: (10 / $REMtoPXratio) + rem ((56.5 / $REMtoPXratio) + rem);
+            color: orange;
+            &.thumbnail-1{
+                width: 1.3rem; height: 1.3rem;
+                background-size: contain;
+                background-position: center center;
+                background-repeat: no-repeat;
+                align-self: center;
+            }
+        }
+        &>div:nth-of-type(2){
+            flex-grow: 1;align-self: flex-start;
+        }
+        &>*:last-child{
+            width: (56 / $REMtoPXratio) + rem; height: (56 / $REMtoPXratio) + rem;
+            align-self: center;
+            margin-left: (64 / $REMtoPXratio) + rem; margin-right: (64 / $REMtoPXratio) + rem;
+            font-size: 2em;
+            background-size: contain; background-position: center center; background-repeat: no-repeat;
+            color: orange;
+        }
+    }
+    &._4{
+        @extend .panel._3;
+        &>*:first-child{
+            margin: (10 / $REMtoPXratio) + rem ((30 / $REMtoPXratio) + rem);
+        }
+        h6{
+            margin-top:0.5em; margin-bottom: 0.5em;
+        }
+
+    }
+}
+
+
+.numericalSetter{
+    float: right;
+    width: (165 / $REMtoPXratio) + rem;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    .random-8974{
+        appearance:none;
+        display: inline-block;
+        width: (50 / $REMtoPXratio) + rem; height: (50 / $REMtoPXratio) + rem;
+        background-color: white;
+        background-size: 100%; background-position: center center; 
+        &._1{
+            background-image:url('../img/minus.svg');
+        }
+        &._2{
+            background-image:url('../img/plus.svg');
+        }
+    }
+}
+
+#nav-shoppingSteps{
+    height: (225 / $REMtoPXratio) + rem;
+    padding: ((38 / $REMtoPXratio) + rem) ((60 / $REMtoPXratio) + rem);
+    display: flex; flex-direction: column; justify-content: space-between;
+    background-color: white;
+    &>div{
+        display: flex;
+        justify-content:space-between;align-items: center;
+        &:first-child{
+            position: relative;
+            z-index:1;
+            &>hr{
+                @extend .absoluteCenteringOnThisStackContext;
+                z-index:-1;
+            }
+        }
+    }
+        .shoppingStep{
+            width: (75 / $REMtoPXratio) + rem; height: (75 / $REMtoPXratio) + rem;
+            border-radius: 100%; text-align: center; line-height: (75 / $REMtoPXratio) + rem; 
+            font-size: 1.25em; font-weight: bold; 
+            background-color:#bbb;
+            color: white;
+            &._complete{
+                background-image: url('../img/check.png');
+                background-size:100%; background-position: center center;
+            }
+        }
+        .random-3879{
+            color:#bbb;
+        }
+}
+
+.iconfont.icon-yellowStar{
+    font-size: 1em;
+    color: #ff8400;
+    &._unstar{
+        color: #d8d8d8;
+    }
+}
+.form-group{
+    width:100%;  height: (290 / $REMtoPXratio) + rem;
+    input{
+        width:100%;
+    }
+}
+
+.placeholder{
+    width: auto; height: (215 / $REMtoPXratio) + rem;
+}
+
+.icon-ic-heart._liked{
+    color: red !important;
+}

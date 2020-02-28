@@ -1,0 +1,278 @@
+@charset "UTF-8";
+@import '../style/px2rem.scss';
+@import '../style/components/buttons.scss';
+@import '../style/components/downArrow.scss';
+@import '../style/normalize-scss/_normalize.scss';
+@import '../style/swiper/swiper.min.css';
+@import '../style/animateCss/animate.css';
+
+$designWidth: 640;
+
+body {
+  width: 16rem;
+  height: 100vh;
+  font-size: px2rem(36);
+  padding: 0;
+  margin: 0;
+  font-family: 'MicrosoftYaHei';
+}
+// 
+  header{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+    &>:first-child {
+      margin: px2rem(24) 0;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+    .site-title {
+      display: flex;
+      justify-content: space-around;
+      img {
+        display: block;
+        width: px2rem(47);
+        height: px2rem(49);
+        margin: 0 px2rem(10);
+      }
+      h1 {
+        margin: 0;
+        font-family: 'MicrosoftYaHei-Bold';
+        font-size: px2rem(25);
+        font-weight: bold;
+        color: #1c162f;
+        letter-spacing: px2rem(2);
+      }
+      h2 {
+        margin: 0;
+        font-size: px2rem(8);
+        font-weight: normal;
+        color: #1c162f;
+      }
+    }
+    .telephone-number {
+      font-family: Arial, Helvetica, sans-serif
+    }
+    .site-nav {
+      list-style: none;
+      border-top: px2rem(3) solid #822f69;
+      border-bottom: px2rem(3) solid #822f69;
+      display: flex;
+      padding: 0;
+      margin: 0;
+      height: px2rem(48);
+      &>li {
+        flex-grow: 1;
+        text-align: center;
+        font-size: px2rem(24);
+        display: flex;
+        align-items: center;
+        &.selected {
+          background-color: #1c162f;
+          a {
+            color: white;
+          }
+        }
+        &::after {
+          content: "";
+          width: px2rem(2);
+          height: px2rem(24);
+          background-color: #1c162f;
+        }
+        &:last-child::after {
+          content: none;
+        }
+      }
+      a {
+        flex-grow: 1;
+        text-decoration: none;
+        color: #191725;
+      }
+    }
+body>section {
+  height: inherit;
+  width: inherit;
+}
+// 
+  .章节-怀孕了？ {
+    background-image: url('../picture/怀了孕？.png');
+    background-size: cover;
+    background-position: center center;
+  }
+    .段落-怀孕了？ {
+      margin-top: px2rem(213);
+      margin-left: px2rem(40);
+      box-sizing: border-box;
+      width: px2rem(500);
+      padding: px2rem(70) px2rem(10);
+      background-color: rgba(37, 32, 88, 0.8);
+      animation-delay: 1s;
+      animation-duration: 4s;
+    }
+      .文本-有… {
+        color: #ffffff;
+        font-size: px2rem(94);
+        animation-delay: 1s;
+        animation-duration: 2s;
+      }
+      .文本-是… {
+        margin-top: px2rem(70);
+        color: #bdb9ef;
+        font-size: px2rem(72);
+        animation-duration: 3s;
+        animation-delay: 1s;
+
+      }
+      .文本-怀… {
+        margin-top: px2rem(27);
+        color: #ffffff;
+        font-size: px2rem(108);
+        animation-delay: 1s;
+        animation-duration: 4s;
+      }
+    .链接-怀孕检查 {
+      @include cherryButton();
+      margin: 0 auto;
+      margin-top: px2rem(70);
+    }
+// 
+  .章节-怀孕症状 {
+    background-color: #822f69;
+    * {
+      color : #fff;
+    }
+  }
+    .段落-大姨妈还没来 {
+      text-align: center;
+      &::after {
+        @include downArrow();
+      }
+      margin-top: px2rem(70);
+    }
+    .段落-是不是怀孕了 {
+      text-align: center;
+      &::after {
+        @include downArrow();
+      }
+      margin-top: px2rem(70);
+      h2 {
+        margin: 0;
+        font-size: px2rem(48);
+        font-weight: normal;
+      }
+      h1 {
+        margin: px2rem(12);
+        font-size: px2rem(78);
+      }
+      h3 {
+        margin: 0 px2rem(53);
+        font-size: px2rem(30);
+        font-weight: normal;
+        text-align: left;
+      }
+    }
+    .链接-咨询专家 {
+      @include cherryButton-thin();
+      margin: 0 auto;
+      margin-top: px2rem(60);
+    }
+    .链接-健康热线 {
+      @include rosaButton-thin();
+      margin: 0 auto;
+      margin-top: px2rem(35);
+    }
+//
+  .章节-查早孕的方法 {
+    background-color: #fbfbfb;
+    &::after {
+      content: '';
+      display: block;
+      width: px2rem(176);
+      height: px2rem(6);
+      background-color: #822f69;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+  }
+    .文本-查… {
+      width: px2rem(610);
+      font-size: px2rem(65);
+      color: #483c6c;
+      font-family: 'MicrosoftYaHei-Bold';
+      margin: px2rem(35);
+      margin-left: px2rem(30);
+    }
+    .wrap-1 {
+      display: flex;
+      justify-content: space-around;
+      height: px2rem(840);
+      &>* {
+        flex-basis: px2rem(280);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: inherit;
+        &>:not(:first-child) {
+          box-sizing: border-box;
+          padding: 0 px2rem(20);
+        }
+      }
+      [class^="标题-"] {
+        color: #822f69;
+        font-size: px2rem(30);
+        font-weight: bold;
+        margin-top: px2rem(25);
+      }
+      [class^="文本-"] {
+        font-size: px2rem(24);
+
+      }
+
+    }
+      .文本-血HCG {
+        display: block;
+        box-sizing: border-box;
+        height: px2rem(85);
+        width: 100%;
+        line-height: px2rem(85 * 1.2);
+        vertical-align: middle;
+        background-image: url('../picture/血HCG.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        text-align: center;
+        color: #822f69;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+      }
+      .文本-B超 {
+        display: block;
+        box-sizing: border-box;
+        height: px2rem(85);
+        width: 100%;
+        line-height: px2rem(85 * 1.2);
+        vertical-align: middle;
+        background-image: url('../picture/B超.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        text-align: center;
+        color: #822f69;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+      }
+      .链接-预约检查血HCG {
+        @include cherryButton-small();
+        margin: 0 auto;
+        margin-top: px2rem(20);
+      }
+      .链接-预约检查B超 {
+        @include rosaButton-small();
+        margin: 0 auto;
+        margin-top: px2rem(20);
+      }

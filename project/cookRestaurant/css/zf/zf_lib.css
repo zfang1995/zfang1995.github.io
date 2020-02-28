@@ -1,0 +1,38 @@
+[role='div'] {
+  display: block; }
+
+[role='division'] {
+  display: block; }
+
+[role='span'] {
+  display: inline; }
+
+[role='span'] {
+  display: inline; }
+
+.clearfix {
+  *zoom: 1; }
+  .clearfix:before, .clearfix:after {
+    content: "";
+    display: table; }
+  .clearfix:after {
+    clear: both; }
+
+img.responsive {
+  display: block;
+  max-width: 100%;
+  height: auto; }
+
+.absoluteCenteringOnThisStackContext {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto; }
+
+.background {
+  position: absolute;
+  z-index: -2; }
+
+/*# sourceMappingURL=zf_lib.css.map */

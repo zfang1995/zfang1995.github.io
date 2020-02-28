@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>利用canvas技术做的五子棋游戏</title>
+  <style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+      #cover {
+        position: absolute;
+        left: 0; right: 0;
+        height: 100%;
+        margin: auto;
+        background-color: rgba(255,255,255,0.6);
+      }
+      #victoryAssert {
+        font-size: xx-large;
+        color: red;
+        position: absolute;
+        top: 33%;
+        width: fit-content;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+      .reset-button {
+        position: absolute;
+        top: 50%;
+        width: fit-content;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+    </style>
+</head>
+
+<body>
+  <canvas id="canvas" height="900" width="900"></canvas>
+  <div id="cover">
+    <div id="victoryAssert"></div>
+    <button class="reset-button" type="reset" onclick="initializeGame()">
+      restart game!
+    </button>
+  </div>
+</body>
+<script>
+// -> declare presets
+  function initializeGame() {
+    chessboard = new Chessboard(chessboardSize, gridLength);
+    chessboard.drawOn(theCanvasContext);
+    document.getElementById("cover").style.display = "none";
+  }
+  function canvasClickHandler(event) {
+    let mouseClickPosition = getMousePosition(event);
+    let positionOfNearestChess = GetThePositionOfTheChessClosestToClickedPosition(
+      mouseClickPosition
+    );
+    let 半径容差 = 0.5;
+
+    if (
+      Math.pow(半径容差, 2) >
+      Math.pow(
+        mouseClickPosition[0] / gridLength - positionOfNearestChess[0],
+        2
+      ) +
+      Math.pow(
+        mouseClickPosition[1] / gridLength - positionOfNearestChess[1],
+        2
+      )
+    ) {
+      if (
+        positionOfNearestChess.every(
+          (value, index) => value < chessboardSize[index] && value > 0
+        )
+      ) {
+        let Chess = chessboard.map[positionOfNearestChess];
+        if (
+          typeof Chess === "string" ||
+          Chess.colorOfChessAboveThis === "none"
+        ) {
+          chessboard.落子(positionOfNearestChess, currentColorOfChess);
+          transRound();
+          // console.log('you clicked', positionOfNearestChess) // debug
+        }
+      }
+    }
+  }
+  function getMousePosition(event) {
+    var e = event || window.event;
+    var scrollX =
+      document.documentElement.scrollLeft || document.body.scrollLeft;
+    var scrollY =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    var offsetX = theCanvas.offsetLeft;
+    var offsetY = theCanvas.offsetTop;
+    var x = e.pageX - offsetX || e.clientX + scrollX - offsetX;
+    var y = e.pageY - offsetY || e.clientY + scrollY - offsetY;
+    return [x, y];
+  }
+  function convertTable(position) {
+    let table = {
+      "-1,-1": "leftDiagonal",
+      "-1,0": "horizontal",
+      "-1,1": "rightDiagonal",
+      "0,-1": "vertical",
+      "0,1": "vertical",
+      "1,-1": "rightDiagonal",
+      "1,0": "horizontal",
+      "1,1": "leftDiagonal"
+    };
+    return table[position.toString()];
+  }
+  function victoryHandler(currentColorOfChess) {
+    document.getElementById("cover").style.display = "block";
+    document.getElementById('victoryAssert').innerText = currentColorOfChess + " player has won !"
+    // setTimeout(() => {
+    //   alert(currentColorOfChess + " player has won !");
+    // }, 0);
+  }
+  function transRound() {
+    currentColorOfChess = currentColorOfChess === "black" ? "white" : "black";
+  }
+  function GetThePositionOfTheChessClosestToClickedPosition(eventTargetPosition) {
+    return ([X, Y] = eventTargetPosition.map(value => {
+      if (30 - (value % gridLength) < value % gridLength) {
+        return Math.floor(value / gridLength + 1);
+      } else {
+        return Math.floor(value / gridLength);
+      }
+    }));
+  }
+
+  let chessboardSize = [30, 30], // 初始化棋盘大小--[宽, 高]
+    theCanvas = document.getElementById("canvas"),
+    theCanvasContext = theCanvas.getContext("2d"),
+    gridLength =
+      Math.min(theCanvas.clientWidth, theCanvas.clientHeight) /
+      Math.max(chessboardSize[0], chessboardSize[1]),
+    chessRadius = 15, // 初始化棋子半径,单位:像素
+    currentColorOfChess = "black", //黑子先行
+    chessboard;
+
+  class Chess {
+    //定义棋子对象
+    constructor(position = [1, 1], chessColor = "none") {
+      this.linkedPaths = {};
+      this.position = position;
+      this.shape = "circle";
+      this.radius = gridLength / 2;
+      this.colorOfChessAboveThis = chessColor;
+      this.name = "chess";
+      this.contextOnCanvas = theCanvas.getContext("2d");
+    }
+    takeAwayTheChessPiece() {
+      this.colorOfChessAboveThis = "none";
+    }
+    setTheChessPiece(chessColor) {
+      colorOfChessAboveThis = chessColor;
+    }
+    drawChess() {
+      let context = this.contextOnCanvas;
+      context.beginPath();
+      context.arc(
+        ...this.position.map(value => value * gridLength),
+        this.radius,
+        0,
+        2 * Math.PI
+      );
+      context.fillStyle = this.colorOfChessAboveThis;
+      context.fill();
+      context.closePath();
+    }
+  }
+  class Path {
+    //定义路径对象
+    constructor(direction, ...positions) {
+      this.nodes = new Set();
+      this.direction = direction;
+      let length = 0;
+      Object.defineProperty(this, "length", {
+        set(value) {
+          length = value;
+          if (value >= 5) victoryHandler(currentColorOfChess);
+        },
+        get() {
+          return length;
+        }
+      });
+      this.addNodesByPosition(...positions);
+    }
+    addNodes(...Chesss) {
+      Chesss.map(Chess => {
+        this.nodes.add(Chess);
+        Chess.linkedPaths[this.direction] = this;
+      });
+      this.length = Chesss.length + this.length;
+    }
+    addNodesByPosition(...positions) {
+      this.addNodes(
+        ...positions.map(position => {
+          return chessboard.map[position.toString()];
+        })
+      );
+    }
+    extend(path) {
+      this.addNodes(...path.nodes);
+    }
+  }
+  class Chessboard {
+    constructor(chessboardSize, gridLength) {
+      this.size = chessboardSize
+      this.map = (function (map) {
+        for (let x = chessboardSize[0] - 1; x >= 1; x--) {
+          for (let y = chessboardSize[1] - 1; y >= 1; y--) {
+            map[[x, y].toString()] = [
+              x * gridLength,
+              y * gridLength
+            ].toString();
+          }
+        }
+        return map;
+      })({})
+    }
+
+    generateObjectOfChess(position, chessColor) {
+      return (chessboard.map[position.toString()] = new Chess(
+        position,
+        chessColor
+      ));
+    }
+    落子(position, colorOfChess = "red") {
+      // position: {array}   the position of central Chess
+      // 为落子地点及周围的空地生成棋子对象
+      let targetChess = this.generateObjectOfChess(
+        position,
+        colorOfChess
+      );
+      for (let x = position[0] - 1; x <= position[0] + 1; x++) {
+        for (let y = position[1] - 1; y <= position[1] + 1; y++) {
+          let Chess = this.map[[x, y].toString()];
+          if (typeof Chess === "string") {
+            if (Chess !== position.toString())
+              this.generateObjectOfChess([x, y]);
+          } else {
+            // 操作已有的棋子对象
+            if (Chess && targetChess !== Chess) {
+              let 某个方向 = convertTable([
+                x - position[0],
+                y - position[1]
+              ]),
+                path = Chess.linkedPaths[某个方向];
+              if (Chess.colorOfChessAboveThis === colorOfChess) {
+                if (path) {
+                  if (targetChess.linkedPaths[某个方向]) {
+                    targetChess.linkedPaths[某个方向].extend(path);
+                  } else {
+                    targetChess.linkedPaths[某个方向] = path;
+                    path.addNodes(targetChess);
+                  }
+                } else {
+                  if (targetChess.linkedPaths[某个方向]) {
+                    // 落子有路径对象,旁边的棋子没有时
+                    targetChess.linkedPaths[某个方向].addNodes(
+                      Chess
+                    );
+                  } else {
+                    // 两个棋子都还没有相应的路径对象时
+                    path = new Path(某个方向, position, [x, y]);
+                    targetChess.linkedPaths[某个方向] = path;
+                    Chess.linkedPaths[某个方向] = path;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      targetChess.drawChess();
+    }
+    drawOn(context) { // draw chessboard !
+      // draw background
+      context.fillStyle = "#7F6A00";
+      context.fillRect(0, 0, 900, 900);
+      // draw lines
+      let lineWidth = 2,
+        lineColor = "gray",
+        linesAmount = chessboardSize.map(value => value - 1);
+      context.strokeStyle = lineColor;
+      for (let index = 0; index < linesAmount.length; index++) {
+        let value = linesAmount[index],
+          x,
+          y,
+          rectangleWidth,
+          rectangleHeight;
+        for (let counter = 0; counter < value; counter++) {
+          if (index === 0) {
+            (x = 0),
+              (y = (1 + counter) * gridLength),
+              (rectangleWidth = theCanvas.clientWidth),
+              (rectangleHeight = lineWidth);
+          } else {
+            (x = (1 + counter) * gridLength),
+              (y = 0),
+              (rectangleWidth = lineWidth),
+              (rectangleHeight = theCanvas.clientHeight);
+          }
+          context.fillStyle = lineColor;
+          context.fillRect(x, y, rectangleWidth, rectangleHeight);
+        }
+      }
+    }
+  }
+// -> main preogress
+  theCanvas.addEventListener("click", canvasClickHandler);
+  document.body.onload = initializeGame();
+
+
+</script>
+
+</html>

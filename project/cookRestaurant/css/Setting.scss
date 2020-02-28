@@ -1,0 +1,34 @@
+@import '_thisSite.framework.scss';
+
+#div-titleBar{
+    height: (132 / $REMtoPXratio) + rem; width: 100%;
+    position: relative;
+    &>div{
+        width: 100%;
+        position: fixed;
+        text-align: center; line-height: (132 / $REMtoPXratio) + rem; vertical-align: middle;
+        font-weight: bold;
+        background-color: white;
+    }
+}
+
+.random-5{
+    display: flex; justify-content: space-between; align-items: center;
+    height: (180 / $REMtoPXratio) + rem;
+    line-height: (180 / $REMtoPXratio) + rem; vertical-align: middle;
+    border-bottom: 3px solid #e4e4e4;
+    .icon-checkBox{
+        width: (50 / $REMtoPXratio) + rem; height: (50 / $REMtoPXratio) + rem;
+        background-image: url('../img/checkbox.png');
+        background-position: top;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        &:checked{
+            background-position:bottom;
+        }
+        &:focus{
+            box-shadow: none;
+        }
+    }
+}

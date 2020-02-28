@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>利用canvas技术做的五子棋游戏</title>
+    <style>
+#canvas {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+    </style>
+</head>
+<body>
+    <canvas id="canvas" height="900" width="900"></canvas>
+</body>
+    <script>
+// progress
+class Chessboard { //定义棋盘对象
+    constructor (chessboardSize, gridLength) {
+        this.size = chessboardSize
+        this.map = (function (map) {
+                for (let x = chessboardSize[0] - 1; x >= 1; x--) {
+                  for (let y = chessboardSize[1] - 1; y >= 1; y--) {
+                    map[[x, y].toString()] = [x*gridLength, y*gridLength].toString()
+                  }
+                }
+                return map
+            })({})
+    }
+    generateObjectOfChessCell (position, chessColor) {
+      return chessboard.map[position.toString()] =  new ChessCell(position, chessColor)
+    }
+    落子 (position, colorOfChess = 'red') {
+      // position: {array}   the position of central chessCell
+      // 为落子地点及周围的空地生成棋格对象
+      let targetChessCell = this.generateObjectOfChessCell(position, colorOfChess)
+      for (let x = position[0] - 1; x <= position[0] + 1; x++) {
+        for (let y = position[1] - 1; y <= position[1] + 1; y++) {
+          let chessCell = this.map[[x, y].toString()]
+          if ((typeof chessCell === 'string')) {
+            if (chessCell !== position.toString()) this.generateObjectOfChessCell([x, y])
+          } else { // 操作已有的棋格对象
+            if ( chessCell && targetChessCell !== chessCell) {
+              let oneDirenction = getDirection([x - position[0], y - position[1]]),
+                  path = chessCell.linkedPaths[oneDirenction]
+              if (chessCell.colorOfChessAboveThis === colorOfChess) {
+                if (path) {
+                  if (targetChessCell.linkedPaths[oneDirenction]) {
+                    targetChessCell.linkedPaths[oneDirenction].extend({path})
+                  } else {
+                    targetChessCell.linkedPaths[oneDirenction] = path
+                    path.addNode(targetChessCell)
+                  }
+                } else {
+                  if (targetChessCell.linkedPaths[oneDirenction]) { // 落子有路径对象,旁边的棋子没有时
+                    targetChessCell.linkedPaths[oneDirenction].addNode(chessCell)
+                  } else { // 两个棋子都还没有相应的路径对象时
+                    path = new Path(oneDirenction, position, [x, y])
+                    targetChessCell.linkedPaths[oneDirenction] = path
+                    chessCell.linkedPaths[oneDirenction] = path
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      targetChessCell.drawChess()
+    }
+}
+let chessboardSize = [30, 30], // 初始化棋盘大小--[宽, 高]
+    theCanvas = document.getElementById('canvas'),
+    theCanvasContext = theCanvas.getContext('2d'),
+    gridLength = Math.min(theCanvas.clientWidth, theCanvas.clientHeight) / Math.max(chessboardSize[0], chessboardSize[1]),
+    chessRadius = 15, // 初始化棋子半径,单位:像素
+    currentColorOfChess = 'black', //黑子先行
+    chessboard = new Chessboard(chessboardSize, gridLength) //初始化棋盘对象
+document.body.onload = drawChessboard //绘制棋盘
+class ChessCell { //定义棋格对象
+  constructor (position = [1, 1], chessColor = 'none') {
+    this.linkedPaths = {}
+    this.position = position
+    this.shape = 'circle'
+    this.radius = gridLength / 2
+    this.colorOfChessAboveThis = chessColor
+    this.name = 'ChessCell'
+    this.contextOnCanvas = theCanvas.getContext('2d')
+  }
+  takeAwayTheChessPiece () {
+    this.colorOfChessAboveThis = 'none'
+  }
+  setTheChessPiece (chessColor) {
+    colorOfChessAboveThis = chessColor
+  }
+  drawChess () {
+    let context = this.contextOnCanvas
+    context.beginPath()
+    context.arc(...this.position.map(value => value*gridLength), this.radius, 0, 2 * Math.PI)
+    context.fillStyle = this.colorOfChessAboveThis
+    context.fill()
+    context.closePath()
+  }
+} 
+class Path { //定义路径对象
+  constructor (direction, ...positions) {
+    this.nodes = new Set()
+    this.direction = direction
+    let length = 0
+    Object.defineProperty(this, 'length', {
+      set (value) {
+        length = value
+        if (value >= 5) victoryHandler(currentColorOfChess)
+      },
+      get () {
+        return length
+      }
+    })
+    this.extend({positions})
+  }
+  addNode (chessCell) {
+    this.nodes.add(chessCell)
+    chessCell.linkedPaths[this.direction] = this
+    this.length++
+  }
+  addNodeByPosition (position) {
+    this.addNode(chessboard.map[position.toString()])
+  }
+  extend ({path, chessCells, positions}) {
+    console.log(positions)
+    if (path) [...path.nodes].map(chessCell => this.addNode(chessCell))
+    if (chessCells) chessCells.map(chessCell => this.addNode(chessCell))
+    if (positions) positions.map(position => this.addNodeByPosition(position))
+  }
+}
+theCanvas.addEventListener('click', canvasClickHandler) 
+
+
+// prepare functions
+function drawChessboard () {
+  let context = theCanvasContext
+  // draw chessboard !
+  // draw background
+  context.fillStyle = '#7F6A00'
+  context.fillRect(0, 0, 900, 900)
+  // draw lines
+  let lineWidth = 2,
+      lineColor = 'gray',
+      linesAmount = chessboardSize.map(value => value - 1)
+  context.strokeStyle = lineColor
+  for (let index = 0; index < linesAmount.length; index++) {
+    let value = linesAmount[index], x, y, rectangleWidth, rectangleHeight
+    for (let counter = 0; counter < value; counter++) {
+      if (index === 0) {
+        x = 0, y = ((1+counter)*gridLength), rectangleWidth = theCanvas.clientWidth, rectangleHeight = lineWidth
+      } else {
+        x = ((1+counter)*gridLength), y = 0, rectangleWidth = lineWidth, rectangleHeight = theCanvas.clientHeight
+      }
+      context.fillStyle = lineColor
+      context.fillRect(x, y, rectangleWidth, rectangleHeight)
+    }
+  }
+}
+function canvasClickHandler (event) {
+  let mouseClickPosition = getMousePosition(event)
+  let positionOfNearestChessCell = GetThePositionOfTheChesscellClosestToClickedPosition(mouseClickPosition)
+  let 半径容差 = 0.5
+  
+  theCanvasContext.fillStyle = 'red' // debug
+  theCanvasContext.fillRect(...mouseClickPosition, 3, 3) // debug
+  if (Math.pow(半径容差, 2) > (Math.pow(((mouseClickPosition[0] / gridLength) - positionOfNearestChessCell[0]), 2) + Math.pow(((mouseClickPosition[1] / gridLength) - positionOfNearestChessCell[1]), 2))) {
+    if (positionOfNearestChessCell.every((value, index) => ((value < chessboardSize[index]) && (value > 0)))) {
+        let ChessCell = chessboard.map[positionOfNearestChessCell]
+        if ((typeof ChessCell === 'string') || (ChessCell.colorOfChessAboveThis === 'none')) {
+            chessboard.落子(positionOfNearestChessCell, currentColorOfChess)
+            transRound()
+            console.log('you clicked: ' + currentColorOfChess, positionOfNearestChessCell) // debug
+        }
+    }
+  }
+}
+function getMousePosition (event) {
+  var e = event || window.event;
+  var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+  var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+  var offsetX = theCanvas.offsetLeft
+  var offsetY = theCanvas.offsetTop
+  var x = e.pageX - offsetX || e.clientX + scrollX - offsetX
+  var y = e.pageY - offsetY || e.clientY + scrollY - offsetY
+  return [x, y];
+}
+
+function getDirection (position) {
+  let table =  { '-1,-1':'leftDiagonal', '-1,0':'horizontal', '-1,1':'rightDiagonal', '0,-1': 'vertical', '0,1':'vertical', '1,-1':'rightDiagonal', '1,0':'horizontal', '1,1':'leftDiagonal' }
+  return table[position.toString()]
+}
+function victoryHandler (currentColorOfChess) {
+  setTimeout(() => alert(currentColorOfChess + ' player has won !'), 0)
+}
+function transRound () {
+  currentColorOfChess = currentColorOfChess === 'black' ? 'white' : 'black'
+}
+function GetThePositionOfTheChesscellClosestToClickedPosition (eventTargetPosition) {
+  return [X, Y] = eventTargetPosition.map(value => {
+    if ((30 - (value % gridLength)) < (value % gridLength)) {
+      return Math.floor((value / gridLength) + 1)
+    } else {
+      return Math.floor((value / gridLength))
+    }
+  })
+}
+</script>
+</html>

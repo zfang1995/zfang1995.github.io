@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,YAAkB;EACjB,OAAO,EAAC,IAAI;EACZ,2CAAgC;IAC/B,SAAS,EAAE,UAAU;IACrB,WAAW,EAAE,UAAU;IACvB,eAAe,EAAE,YAAY;IAC7B,qDAAS;MACR,IAAI,EAAE,GAAG;EAGX,uBAAY;IACX,SAAS,EAAE,QAAQ;IACnB,aAAa,EAAE,UAAU;EAE1B,kCAAuB;IACtB,cAAc,EAAE,MAAM;IACtB,eAAe,EAAE,MAAM;IACvB,sCAAG;MACF,MAAM,EAAC,IAAI",
+"sources": ["flexBoxLayout.framework.scss"],
+"names": [],
+"file": "flexBoxLayout.framework.css"
+}

@@ -1,0 +1,48 @@
+@import '_thisSite.framework.scss';
+
+#div-titleBarMyOder{
+    height: (132 / $REMtoPXratio) + rem; width: 100%;
+    position: relative;
+    &>div{
+        width: 100%;
+        position: fixed;
+        text-align: center; line-height: (132 / $REMtoPXratio) + rem; vertical-align: middle;
+        font-weight: bold;
+        background-color: white;
+    }
+}
+
+#div-mainContentAera{
+    width: 100%; height: auto;
+    padding-top: (40 / $REMtoPXratio) + rem;
+    background-color: #efeff3;
+    #div-complete{
+        @extend .displayFlex;
+        @extend .displayFlex.descendantCenteringOnThis;
+        margin-top:(60 / $REMtoPXratio) + rem;
+        width: (1242 / $REMtoPXratio) + rem; height: (1542 / $REMtoPXratio) + rem;
+        background-color: white;
+        img{
+            width: (415 / $REMtoPXratio) + rem; height: (415 / $REMtoPXratio) + rem;
+        }
+    }
+}
+    #div-random-0213{
+        margin-bottom: (50 / $REMtoPXratio) + rem;
+        padding: (30 / $REMtoPXratio) + rem;
+        justify-content:space-between;
+        font-size: 1.2em;
+        background-color: white;
+    }
+    #div-random-0234{
+        padding: (30 / $REMtoPXratio) + rem;
+        font-size: 1.2em;
+        background-color: white;
+    }
+#div-cancelOder{
+    height:(165 / $REMtoPXratio) + rem; width: (1242 / $REMtoPXratio) + rem;
+    position:fixed; bottom: 0;
+    line-height: (165 / $REMtoPXratio) + rem; vertical-align: middle; text-align: center;
+    font-size: 1.8em; font-weight:bold;
+    color:white; background-color:#ff8400;
+}

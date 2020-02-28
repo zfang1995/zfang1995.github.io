@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="../css/Oder2.css">
+    <link rel="stylesheet" href="../css/zf/tweak_toolkit.css">
+    <title>我的订单</title>
+</head>
+<body>
+     <div id='div-titleBarMyOder'>
+         <div><i class="iconfont icon-ic-add" style="position: absolute; left: 0.35rem; top: 0rem;"></i>
+            <h6>我的订单</h6>
+         </div>
+     </div>
+     <div id="div-mainContentAera" title="dishes list">
+        <nav id="nav-shoppingSteps">
+            <div>
+                <div class="shoppingStep _complete"></div>
+                <div class="shoppingStep _complete"></div>
+                <div class="shoppingStep ">3</div>
+                <div class="shoppingStep ">4</div>
+                <hr>
+            </div>
+            <div>
+                <div class="random-3879">预览</div>
+                <div class="random-3879">购买</div>
+                <div class="random-3879">支付</div>
+                <div class="random-3879">完成</div>
+            </div>
+        </nav>
+        <form action="" method="POST" role="form" id="form-buyerInfo" >
+            <legend>buyer information</legend>
+        
+            <div class="form-group">
+                <label for="">Your name *</label>
+                <input type="text" class="form-control" id="" placeholder="NHLoung">
+            </div>
+            <div class="form-group">
+                <label for="">手机号码 *</label>
+                <select style="margin-right: 1em;">
+                    <option value="+86">+86</option>
+                    <option value="+86">+86</option>
+                    <option value="+86">+86</option>
+                </select>
+                <input type="number" class="form-control" id="" placeholder="7758258" style="width: 5.25rem;">
+            </div>
+            <div class="form-group">
+                <label for="">电邮</label>
+                <input type="text" class="form-control" id="" placeholder="balabala@fairy.com">
+            </div>
+            <div class="form-group">
+                <label for="">公司</label>
+                <input type="text" class="form-control" id="" placeholder="迪士尼">
+            </div>
+            <div class="form-group">
+                <label for="">住址</label>
+                <input type="text" class="form-control" id="" placeholder="纽约">
+            </div>
+            <div class="form-group">
+                <label for="">备注</label>
+                <input type="text" class="form-control" id="" placeholder="">
+            </div>
+            
+        
+            
+        </form>
+     </div>
+     <a id='div-checkOut' href="Oder3.html" style='color: white;'>继续</a>
+<script type="text/javascript" src='../js/auto-size.js'></script>
+<script type="text/javascript" src='../js/jquery.min.js'></script>
+<script type="text/javascript">
+    document.querySelector('.icon-ic-add').addEventListener('click',function () {
+    document.location = 'search.html';
+})
+</script>
+</body>
+</html>

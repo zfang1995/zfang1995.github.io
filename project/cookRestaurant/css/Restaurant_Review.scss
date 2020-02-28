@@ -1,0 +1,76 @@
+@import '_thisSite.framework.scss';
+
+button.random-8974{
+    appearance:none;
+    border-radius: 100%; background-color: white; border: 2px solid lightgrey;
+    font-weight: bolder;
+    color: lightgrey;
+}
+#button-open-1{
+    padding: 0.087rem 0.174rem; color: white; background-color: #ff8400; border-radius: 2em;
+}
+[role='img']{
+    background-size: cover; background-position: center center;
+    &#div-banner-1{
+        width: (1242 / $REMtoPXratio) + rem; height: (625 / $REMtoPXratio) + rem;
+    }
+    &.foodThumbnail-1{
+        height: (381 / $REMtoPXratio) + rem;
+    }
+
+}
+
+#div-restaruantNavigation-1{
+    width: (1122 / $REMtoPXratio) + rem; height: (350 / $REMtoPXratio) + rem;
+    position: absolute; left:0 ; right: 0; margin: auto;
+    top: (401 / $REMtoPXratio) + rem;
+    background-color: white;
+    box-shadow: 2px 3px 8px lightgrey;
+    &>:first-child{
+        height: (205 / $REMtoPXratio) + rem;
+        border-bottom: (2 / $REMtoPXratio) + rem solid #ddd;
+    }
+    &>:last-child{
+        height: (158 / $REMtoPXratio) + rem;
+        .column{
+            height:(146 / $REMtoPXratio) + rem; width :(182 / $REMtoPXratio) + rem;
+            border-bottom: solid rgba(255, 255, 255, 0) (12 / $REMtoPXratio) + rem;;
+            display: flex; 
+            align-items:center; justify-content: space-around;
+            font-weight: bold;
+            &.selected{
+                border-bottom: solid #ff8400 (12 / $REMtoPXratio) + rem;;
+                color: #ff8400;
+            }
+        }
+    } 
+}
+
+#div-random-1{
+    // width: ((578 + 24 + 578) / $REMtoPXratio) + rem;
+    margin: ((223 / $REMtoPXratio) + rem)  ((50 / $REMtoPXratio) + rem);
+}
+
+#div-random-2{
+    width:100%;
+    margin-top: (65 / $REMtoPXratio) + rem; margin-bottom: (65 / $REMtoPXratio) + rem;
+    &>div{
+        display:flex; align-items: center; justify-content:space-between;
+    }
+}
+.random-3111{
+    width: 100%;
+    display: flex;justify-content: space-between;align-items: flex-end; 
+}
+
+.progressBar{
+    width: (920 / $REMtoPXratio) + rem; height: (15 / $REMtoPXratio) + rem;
+    border-radius:1em;
+    background-color:#e3e3e3;
+}
+h6{
+    margin-top: (15 / $REMtoPXratio) + rem; margin-bottom: (15 / $REMtoPXratio) + rem;
+}
+p{
+    text-indent: 2em;
+}

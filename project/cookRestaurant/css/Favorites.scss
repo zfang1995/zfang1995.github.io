@@ -1,0 +1,79 @@
+@import '_thisSite.framework.scss';
+
+#div-titleBarMyOder{
+    height: (132 / $REMtoPXratio) + rem; width: 100%;
+    position: relative;
+    &>div{
+        width: 100%;
+        position: fixed;
+        text-align: center; line-height: (132 / $REMtoPXratio) + rem; vertical-align: middle;
+        font-weight: bold;
+        background-color: white;
+    }
+}       .icon-ic-add{
+            color: #636363;
+        }
+
+#div-mainContentAera{
+    width: 100%; height: inherit;
+    padding-top: (38 / $REMtoPXratio) + rem;
+    background-color: #efeff3;
+    #div-complete{
+        @extend .displayFlex;
+        @extend .displayFlex.descendantCenteringOnThis;
+        margin-top:(60 / $REMtoPXratio) + rem;
+        width: (1242 / $REMtoPXratio) + rem; height: (1542 / $REMtoPXratio) + rem;
+        background-color: white;
+        img{
+            width: (415 / $REMtoPXratio) + rem; height: (415 / $REMtoPXratio) + rem;
+        }
+    }
+}
+
+
+#div-checkOut{
+    height:(165 / $REMtoPXratio) + rem; width: (1242 / $REMtoPXratio) + rem;
+    position:fixed; bottom: 0;
+    line-height: (165 / $REMtoPXratio) + rem; vertical-align: middle; text-align: center;
+    font-size: 1.8em; font-weight:bold;
+    color:white; background-color:#ff8400;
+}
+
+.deleteButton{
+    display: block;
+    width: (285 / $REMtoPXratio) + rem !important; height: (285 / $REMtoPXratio) + rem;
+    background-color: #fb3d3c; color: white;
+    text-align: center;
+    a{
+        color: white;
+    }
+}
+.panel{
+    // display: flex; 
+    // align-items: baseline;
+    left:0; right: 0;
+    margin: auto;
+    box-shadow: 0 0.1rem .2rem #ddd;
+    background-color: inherit;
+    &._1{
+        width: (1182 / $REMtoPXratio) + rem; height: (285 / $REMtoPXratio) + rem;
+        margin-top: (25 / $REMtoPXratio) + rem; margin-bottom: (25       / $REMtoPXratio) + rem;
+        .swiper-slide:first-of-type{
+            &>div{
+                margin: auto;
+                &:nth-of-type(2){
+                    height: 1.1rem;
+                    display: flex;flex-direction: column;justify-content: space-between;
+                }
+            }
+            display: flex;
+            align-items: baseline; background-color: white;
+            [role='img']{
+                width: 1.25rem;height: 1.25rem;
+                background-size: cover;
+                margin-right: (-50 / $REMtoPXratio) + rem; margin-left: (38 / $REMtoPXratio) + rem;
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+@mixin downArrow () {
+  content: '';
+  display: block;
+  height: px2rem(25 * 1.25);
+  width: px2rem(63 * 1.25);
+  background-image : url('../picture/downArrow.png');
+  background-size: contain;
+  margin: px2rem(30) auto;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
